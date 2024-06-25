@@ -2,7 +2,7 @@ import React from 'react'
 import { Badge } from "@/components/ui/badge";
 import { Github } from 'lucide-react';
 
-export default function IdeaCard({ name, description, categories, github, source }) {
+export default function IdeaCard({ name, description, categories, github, source, website }) {
   return (
     <div className="bg-[#0d0d0d] md:w-1/3 w-full p-6">
       <div className="h-10">
@@ -18,10 +18,17 @@ export default function IdeaCard({ name, description, categories, github, source
             <Badge key={index} variant="secondary">{category}</Badge>
           ))}
         </div>
-        <div className='w-1/3 text-xs text-end flex justify-end'>
-          <a href={github} target="_blank" rel="noopener noreferrer">
-            <Github className='w-5 h-5' />
-          </a>
+        <div className='w-1/3 text-xs text-end flex justify-end space-x-3'>
+          {github &&
+            <a href={github} target="_blank" rel="noopener noreferrer">
+              <Github className='w-5 h-5' />
+            </a>
+          }
+          {website &&
+            <a href={website} target="_blank" rel="noopener noreferrer">
+              <Globe className='w-5 h-5' />
+            </a>
+          }
         </div>
       </div>
       <hr className="opacity-10 my-3" />

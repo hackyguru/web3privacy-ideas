@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Filter, Github } from "lucide-react";
+import { Filter, Github, Globe } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import IdeaCard from "@/components/ui/idea-card";
@@ -128,7 +128,7 @@ export default function Home() {
             <DialogTrigger>
               <div className="bg-white text-[#0d0d0d] archivo text-sm flex space-x-3 items-center p-2" onClick={handleGenerateIdea}>
                 <h3>
-                  GENERATE
+                  GENERATE IDEA
                 </h3>
               </div>
             </DialogTrigger>
@@ -154,10 +154,17 @@ export default function Home() {
                             <Badge key={index} variant="secondary">{category}</Badge>
                           ))}
                         </div>
-                        <div className='w-1/3 text-xs text-end flex justify-end'>
-                          <a href={generatedIdea.Github} target="_blank" rel="noopener noreferrer">
-                            <Github className='w-5 h-5' />
-                          </a>
+                        <div className='w-1/3 text-xs text-end flex justify-end space-x-3'>
+                          {generatedIdea.github &&
+                            <a href={generatedIdea.github} target="_blank" rel="noopener noreferrer">
+                              <Github className='w-5 h-5' />
+                            </a>
+                          }
+                          {generatedIdea.website &&
+                            <a href={generatedIdea.website} target="_blank" rel="noopener noreferrer">
+                              <Globe className='w-5 h-5' />
+                            </a>
+                          }
                         </div>
                       </div>
                       <hr className="opacity-10 my-3" />
